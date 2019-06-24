@@ -1,0 +1,71 @@
+proc main()
+{	
+	
+	int i = 0;
+	double j = 52.11;
+	printf("----------------\n");	
+	printf("double type j = %f\n", j);	
+	printf("----------------\n");	
+	while(i<3)
+	{
+		test(i);
+		i=i+1;
+	}
+	
+	int k = 0;
+	printf("----------------\n");	
+	for(k=0;k<5;k=k+1)
+	{
+		printf("for = %f\n", k);	
+	}
+	printf("----------------\n");	
+	int q = 5+3;
+		int w = 6-1;
+			int e = 5*2;
+		int r = 6/3;
+		printf("add = %f\n", q);
+			printf("dif = %f\n", w);
+		printf("mult = %f\n", e);
+		printf("div = %f\n", r);
+	printf("----------------\n");	
+	
+	int con1 = 0;
+	int con2 = 0;
+	while(con1<3)
+	{
+		printf("con1 = %f\n", con1);
+		con1=con1+1;
+		continue;
+		con2=con2+1;
+		
+	}
+	printf("con2 = %f\n", con2);
+	printf("----------------\n");	
+	
+	int bre1 = 0;
+	int bre2 = 0;
+	
+	while(bre1<10)
+	{
+		bre1=bre1+1;
+		for(bre2=0;bre2<5;bre2=bre2+1)
+		{
+			bre1=bre1+1;
+		}
+		break;
+	}
+	printf("bre1 = %f\n", bre1);
+	
+	printf("----------------\n");
+	
+	printf("arif1 = 0\n");
+	printf("arif1 = 1\n");
+	printf("arif1 = 2\n");
+	printf("arif1 = 4\n");
+	printf("----------------\n");
+}
+
+proc test(int i)
+{
+	printf("while = %f\n", i);	
+}

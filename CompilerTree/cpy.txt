@@ -1,0 +1,61 @@
+.386
+.model flat, stdcall
+option casemap : none
+include /masm32/include/kernel32.inc
+include /masm32/macros/macros.asm
+include /masm32/include/msvcrt.inc
+include /masm32/include/masm32.inc
+includelib /masm32/lib/kernel32
+includelib /masm32/lib/msvcrt
+includelib /masm32/lib/masm32
+.data
+a883b858e1f2742cf8cd8173670692a9c real8 21.0
+first real8 ?
+a816dc18d5da0419992c3cf749711df14 real8 ?
+a476d0ceea624421886c968d7fa212dbe real8 21.0
+globalDouble real8 ?
+a7770046341524e7e819ca05c473cbc28 real8 0.0
+i real8 ?
+a84f5b63aafd94285aa2129e4dbff40c5 real8 0.0
+a6c37aaba1b1d42d493c35bc47339e9e0 real8 ?
+fc741135488d40788114659e5d0415f6 real8 10.0
+ab5315ba72f94bdda6972351088237ed real8 ?
+a27ef8f3db3a4466cb56a8ae93d2cd280 real8 1.0
+
+.code
+start:
+fld a883b858e1f2742cf8cd8173670692a9c
+fstp first
+fld a476d0ceea624421886c968d7fa212dbe
+fld first
+fdiv
+fstp globalDouble
+fld a7770046341524e7e819ca05c473cbc28
+fstp i
+fld a84f5b63aafd94285aa2129e4dbff40c5
+jmp forcab77b6d7bd64091a2e11ff98b8541c0
+itercab77b6d7bd64091a2e11ff98b8541c0:
+fld i
+fld a27ef8f3db3a4466cb56a8ae93d2cd280
+fadd
+printf("%f\n", i)
+jmp forcab77b6d7bd64091a2e11ff98b8541c0
+conditioncab77b6d7bd64091a2e11ff98b8541c0:
+finit
+fld i
+fcom fc741135488d40788114659e5d0415f6
+fstsw ax
+fwait
+sahf
+jb aftercab77b6d7bd64091a2e11ff98b8541c0
+jmp outcab77b6d7bd64091a2e11ff98b8541c0
+forcab77b6d7bd64091a2e11ff98b8541c0:
+jmp conditioncab77b6d7bd64091a2e11ff98b8541c0
+aftercab77b6d7bd64091a2e11ff98b8541c0:
+fld i
+fstp first
+jmp itercab77b6d7bd64091a2e11ff98b8541c0
+outcab77b6d7bd64091a2e11ff98b8541c0:
+printf("%f\n", i)
+exit
+end start
